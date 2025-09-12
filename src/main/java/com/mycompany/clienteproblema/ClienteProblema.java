@@ -11,7 +11,8 @@ import java.net.Socket;
 public class ClienteProblema {
 
     public static void main(String[] args) throws IOException {
-       
+              System.out.println("Bienvenido, seleccione. "
+                + "\n[1]-Ingresar"+ "\n[2]-registrar se" + "\n[3]-salir" + "\n[4]-Ver mensajes");
         
        Socket salida = new Socket("localhost", 8080);
         PrintWriter escritor = new PrintWriter(salida.getOutputStream(), true);
@@ -19,6 +20,8 @@ public class ClienteProblema {
         BufferedReader teclado = new BufferedReader(new InputStreamReader(System.in));
         String cadena = teclado.readLine();
         String mensaje;
+        
+
         
         while (!cadena.equalsIgnoreCase("fin")) {
             escritor.println(cadena);
