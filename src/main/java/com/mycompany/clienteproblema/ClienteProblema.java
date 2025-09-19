@@ -28,13 +28,38 @@ public class ClienteProblema {
         String mensaje;
         
 
-        
-        while (!cadena.equalsIgnoreCase("fin")) {
-            escritor.println(cadena);
-            mensaje = lector.readLine();
-            System.out.println(mensaje);
-            cadena = teclado.readLine();
+       while (!cadena.equalsIgnoreCase("fin")) {
+    escritor.println(cadena);
+
+    
+    while ((mensaje = lector.readLine()) != null) {
+        if (mensaje.equals("FIN_HISTORIAL")) {
+           
+            break;
         }
+        System.out.println(mensaje);
+
+        
+        if (mensaje.endsWith(":")) {
+            
+            cadena = teclado.readLine();
+            escritor.println(cadena);
+        }
+    }
+
+   
+   System.out.println("Bienvenido, seleccione. "
+                + "\n[1]-Ingresar"+ 
+                       "\n[2]-registrar se" + 
+                       "\n[3]-salir" + 
+                       "\n[4]-Ver mensajes" + 
+                       "\n[5]-Borrar mensajes espesificos de usuario"+
+                       "\n[6]- Borrar todos los mensajes");
+                       
+
+    cadena = teclado.readLine();
+
+}
         salida.close();
 
     
